@@ -1,3 +1,4 @@
+import e from "express";
 import supabase from "../config/supabase.config.js";
 
 export async function createNewBlogPost(req, res){
@@ -46,6 +47,37 @@ export async function getBlogPosts(req, res){
         return res.status(500).json({ error: error.message });
     }
         
+}
+
+export async function getPostById(req,res){
+   const  {articleId} = req.params
+   if(!articleId){
+    return res.status(400).json({
+        success:false,
+        message: `Please specify a post ID`
+    })
+   }
+   try {
+
+        const {data,error} = await supabase.from("articles").select().eq("article_id", articleId).single()
+
+        if(error){
+            res.status(500).json({
+                success: false,
+                message: error.message
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            article: data
+        })
+    
+    } catch (error) {
+        return res.status(400).json({
+        success:false,
+        message: error.message
+    })
+   }
 }
 
 
