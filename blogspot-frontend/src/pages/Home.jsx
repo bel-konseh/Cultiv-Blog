@@ -3,6 +3,8 @@
 import React from 'react'
 
 function Home() {
+  const user =JSON.parse(localStorage.getItem('user'))
+  // console.log(user)
   return (
     <div>
       <h1>Home page</h1>

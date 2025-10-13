@@ -5,10 +5,10 @@ import Home from './pages/Home'
 import Layout from './pages/Layout'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import Login from './pages/Login'
-import SignUp from './pages/SignUp'
+import LoginPage from './pages/Login'
+import SignUpPage from './pages/SignUp'
 import Profile from './pages/Profile'
-import BlogPost from './pages/BlogPost'
+import BlogPost from './pages/BlogPost/BlogPost'
 
 function App() {
 
@@ -19,10 +19,10 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path="about/" element={<About />} />
       <Route path="contact/" element={<Contact />} />
-      <Route path="login/" element={<Login />} />
-      <Route path="signup/" element={<SignUp />} />
+      <Route path="login/" element={<LoginPage />} />
+      <Route path="signup/" element={<SignUpPage />} />
       <Route path="profile/" element={<Profile />} />
-      <Route path="blogpost/" element={<BlogPost />} />
+      <Route path="blogpost/:articleId" element={<BlogPost />} />
 
     </Route>
   )

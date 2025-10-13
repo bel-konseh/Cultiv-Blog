@@ -1,0 +1,27 @@
+
+
+#commenter{
+    color: #2341c3;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+#comment{
+    font-size: 1.1rem;
+    color: #030303;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.time-elapsed{
+    opacity: 0.8;
+    color: #030303;
+}
+#div{
+    padding: 10px;
+    background-color: #e4dfdf;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: scroll;
+    word-wrap: break-word;
+}
