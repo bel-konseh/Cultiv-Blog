@@ -1,0 +1,136 @@
+
+.contact-page {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #fff; /* white primary */
+  color: #000; /* black primary */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid #000; /* black border */
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: none;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}
+
+/* Responsive stack */
+@media (max-width: 860px) {
+  .contact-card { grid-template-columns: 1fr; }
+}
+
+.contact-title {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  letter-spacing: -0.2px;
+}
+
+.contact-sub {
+  margin: 0 0 18px 0;
+  color: #111;
+  opacity: 0.9;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 10px 12px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  background: transparent;
+  color: #000;
+  outline: none;
+  font-size: 15px;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: #444;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.btn-submit {
+  background: #000; /* black */
+  color: #fff; /* white text */
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  opacity: 0.95;
+}
+
+.status {
+  font-size: 14px;
+}
+
+.contact-info {
+  border-left: 1px solid #000;
+  padding-left: 18px;
+}
+
+@media (max-width: 860px) {
+  .contact-info { border-left: none; padding-left: 0; border-top: 1px solid #000; padding-top: 16px; }
+}
+
+.info-title {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  margin-bottom: 8px;
+}
+
+.contact-info a {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Small helper */
+@media (max-width: 420px) {
+  .contact-title { font-size: 22px; }
+}
