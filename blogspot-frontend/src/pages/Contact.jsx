@@ -79,9 +79,9 @@ export default function Contact() {
         <aside className="contact-info" aria-label="contact information">
           <h2 className="info-title">Other ways to reach us</h2>
           <ul>
-            <li><strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:hello@cultivblogs.com">hello@cultivblogs.com</a></li>
             <li><strong>Location:</strong> Remote</li>
-            <li><strong>Twitter:</strong> <a href="https://twitter.com/" rel="noopener noreferrer">@yourhandle</a></li>
+            <li><strong>Twitter:</strong> <a href="https://twitter.com/" rel="noopener noreferrer">@cultivblogs</a></li>
           </ul>
         </aside>
       </section>
