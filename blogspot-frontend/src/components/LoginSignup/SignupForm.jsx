@@ -81,7 +81,7 @@ const Signup = () => {
   return (
     <div className="auth-container">
       <div className="auth-header">
-        <h1>Create Account</h1>
+        <h1>Create Account!</h1>
         <p>Sign up to get started</p>
       </div>
 

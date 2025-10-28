@@ -1,16 +1,59 @@
 
+import React, { useState, useEffect } from "react";
+import HeroSection from "../components/HeroSection";
+import PostCard from "../components/PostCard";
+import "./Home.css";
 
-import React from 'react'
+const Home = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-function Home() {
-  const user =JSON.parse(localStorage.getItem('user'))
-  // console.log(user)
+  const API_URL = "https://cultiv-blog-backend.onrender.com/api/posts";
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        setPosts(data.blogPosts || []);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return <p className="loading">Loading posts...</p>;
+  }
+
   return (
-    <div>
-      <h1>Home page</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae corrupti quas aut nisi architecto distinctio voluptatum facilis impedit, magnam repellat libero obcaecati minima, ullam aspernatur esse explicabo veniam non! Eaque sapiente mollitia odio culpa ab corrupti. Facilis doloribus earum aperiam dolor maiores voluptatem. Minima ipsum tempora dolor qui vero neque.</p>
-    </div>
-  )
-}
+    <div className="homepage">
+  
+      <HeroSection />
 
-export default Home
+      <section className="posts-section">
+        <h2 className="section-title">Latest Posts</h2>
+        <h5 className="sub-title">Browse and read the latest articles</h5>
+        <div className="posts-grid">
+          {posts.map((article) => (
+            <PostCard
+              articleId={article.article_id}
+              image={article.image_url}
+              title={article.title}
+              date={new Date(article.created_at).toLocaleDateString()}
+              author_name={article.author_id}
+              body={article.body.slice(0, 150) + "..."}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

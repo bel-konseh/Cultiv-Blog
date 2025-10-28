@@ -9,6 +9,7 @@ import LoginPage from './pages/Login'
 import SignUpPage from './pages/SignUp'
 import Profile from './pages/Profile'
 import BlogPost from './pages/BlogPost/BlogPost'
+import CreatePost from './pages/CreatePost'
 
 function App() {
 
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="signup/" element={<SignUpPage />} />
       <Route path="profile/" element={<Profile />} />
       <Route path="blogpost/:articleId" element={<BlogPost />} />
+      <Route path="/create-post" element={<CreatePost />} />
 
     </Route>
   )

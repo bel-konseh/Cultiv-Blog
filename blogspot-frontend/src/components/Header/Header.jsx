@@ -8,7 +8,7 @@ function Header() {
     <div className="header-container">
       <div className="logo-box"> 
         <span><span className='span'>Cultiv</span> Reads</span>
-        <p>ARTICLES THAT RESONATE WITH YOU</p>
+        <p className='head-subtitle'>Articles that resonate with you.</p>
       </div>
       <hr />
       <nav>
