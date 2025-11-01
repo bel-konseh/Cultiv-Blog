@@ -1,81 +1,127 @@
+import React, { useState } from "react";
+import "../CSS/contact.css";
+import facebookIcon from"../Images/facebook.png";
+import instagramIcon from "../Images/instagram.png";
+import twitterIcon from"../Images/twitter.png";
+import threadsIcon from"../Images/threads.png";
 
-import React, { useState } from 'react';
-import '../CSS/contact.css';
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-export default function Contact() {
-  const [form, setForm] = useState({ }); // to handle the input change
-  // const [status, setStatus] = useState(null);
-
+  //input changes
   const handleChange = (e) => {
-      const { name, value} = e.target
-      setForm( prev => ({...prev, [name]: value}));
-  }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
+  // submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Message Sent Successfully!");
+  };
 
   return (
-    <main className="contact-page" aria-labelledby="contact-heading">
-      <section className="contact-card">
-        <h1 id="contact-heading" className="contact-title">Get in touch</h1>
-        <p className="contact-sub">Have a question, feedback or a story to share? Drop a message below.</p>
+    <div className="contact-page">
+      <h1 className="contact-title">Contact Us</h1>
+      <p className="contact-desc">
+        Your Voice Mattters. Connect with us and let's build something great together.
+      </p>
 
-        <form className="contact-form" noValidate>
-          <div className="form-row">
-            <label htmlFor="name">Name</label>
+      <div className="contact-container">
+        {/* Left Side */}
+        <div className="contact-info">
+          <h2>Get In Touch</h2>
+          <p>
+            Hers's how you can reach us!
+          </p>
+
+          <div className="info-item">
+            <i className="fa-solid fa-location-dot"></i>
+            <div>
+              <h4>Address</h4>
+              <p>Mile 6 Nkwen, Bamenda, Cameroon</p>
+            </div>
+          </div>
+
+          <div className="info-item">
+            <i className="fa-solid fa-phone"></i>
+            <div>
+              <h4>Phone Number</h4>
+              <p>+237 678-967-802</p>
+            </div>
+          </div>
+
+          <div className="info-item">
+            <i className="fa-solid fa-envelope"></i>
+            <div>
+              <h4>E-Mail</h4>
+              <p>cultivreads@gmail.com</p>
+            </div>
+          </div>
+
+          <div className="socials">
+            <h4>Follow Us:</h4>
+            <div className="icons">
+              <div className="icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <img src={facebookIcon} alt="Facebook" className="social-icon" />
+                </a>
+
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <img src={twitterIcon} alt="Twitter" className="social-icon" />
+                </a>
+
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <img src={instagramIcon} alt="Instagram" className="social-icon" />
+                </a>
+
+                <a href="https://threads.com" target="_blank" rel="noopener noreferrer">
+                  <img src={threadsIcon} alt="YouTube" className="social-icon" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side */}
+        <div className="contact-form">
+          <h2>Send a Message</h2>
+          <form onSubmit={handleSubmit}>
             <input
-              id="name"
+              type="text"
               name="name"
-              type="text"
-              value={form.name}
+              placeholder="Name"
+              value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Your name"
             />
-          </div>
-
-          <div className="form-row">
-            <label htmlFor="email">Email</label>
             <input
-              id="email"
-              name="email"
               type="email"
-              value={form.email}
+              name="email"
+              placeholder="E-mail address"
+              value={formData.email}
               onChange={handleChange}
               required
-              placeholder="you@example.com"
             />
-          </div>
-
-          <div className="form-row">
-            <label htmlFor="subject">Subject</label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              value={form.subject}
-              onChange={handleChange}
-              placeholder="Short summary"
-            />
-          </div>
-
-          <div className="form-row">
-            <label htmlFor="message">Message</label>
             <textarea
-              id="message"
               name="message"
-              rows="6"
-              value={form.message}
+              placeholder="Message"
+              rows="4"
+              value={formData.message}
               onChange={handleChange}
               required
-              placeholder="Write your message here..."
-            />
-          </div>
+            ></textarea>
 
-          <div className="form-actions">
-            <button type="submit" className="btn-submit">Send Message</button>
-            {status && <span className="status">{status}</span>}
-          </div>
-        </form>
+            <p className="form-note">
+              By submitting, you agree to the processing of your personal data
+              as described in our Privacy Statement.
+            </p>
 
+{/* <<<<<<< HEAD
         <aside className="contact-info" aria-label="contact information">
           <h2 className="info-title">Other ways to reach us</h2>
           <ul>
@@ -86,6 +132,14 @@ export default function Contact() {
         </aside>
       </section>
     </main>
+======= */}
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+// >>>>>>> f8e3a6b7d6f9e8b0fb1c00de7299c2b0ef3c2c22
   );
 }
 
+export default Contact;

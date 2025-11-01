@@ -1,8 +1,11 @@
 import { useState } from 'react'
 
 import './AddComment.css'
+import { useNavigate } from 'react-router-dom';
 
 const AddComment = ({articleId}) => {
+    const token = localStorage.getItem("token");
+    const navigate = useNavigate();
     const BASE_URL = "https://cultiv-blog-backend.onrender.com/api"
     const [comment,setComment] = useState("");
     const postNewComment = async(articleId)=>{
@@ -29,6 +32,18 @@ const AddComment = ({articleId}) => {
         }finally{
             setComment("")
         }
+    }
+    if(!token){
+        return(
+            <>
+            <div className='add-comment-container'>
+            <input className="add-comment-input" type="text" name="comment" value={comment} placeholder='Login to add comments' disabled={true} onChange={(e)=>setComment(e.target.value)} id="" />
+            </div>
+            <button className='add-comment-button' onClick={()=>{
+                navigate("/login")
+            }}>Login Here</button>
+            </>
+        )
     }
   return (
     <div className='add-comment-container'>

@@ -1,32 +1,122 @@
-import {Link, NavLink} from 'react-router-dom'
-import './Header.css'
 
-import React from 'react'
+
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import "./Header.css";
+import React, { useEffect, useState } from "react";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+  useEffect(()=>{
+    
+  },[token])
   return (
     <div className="header-container">
-      <div className="logo-box"> 
-        <span><span className='span'>Cultiv</span> Reads</span>
-        <p>ARTICLES THAT RESONATE WITH YOU</p>
+      <div className="logo-box">
+        <span>
+          <span className="span">Cultiv</span> Reads
+        </span>
+        <p className="head-subtitle">Articles that resonate with you.</p>
       </div>
       <hr />
-      <nav>
-        
-          <ul>
-            <li><NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to="/">HOME</NavLink></li>
-            <li><NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to={"/contact"}> CONTACT </NavLink> </li>
-            <li> <NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to={"/about"}> ABOUT </NavLink></li>
 
-            <li> <NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to={"/profile"}> PROFILE</NavLink></li>
-            <li> <NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to={"/login"}> LOGIN</NavLink></li>
-            <li> <NavLink className={({ isActive }) => isActive ? 'active-tab' : 'nav-link'} to={"/signup"}> SIGNUP</NavLink></li>
-          </ul>
-          
+      {/* Hamburger Button */}
+      <div className={`hamburger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Navigation */}
+      <nav className={menuOpen ? "nav-open" : ""}>
+        <ul>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/"
+              onClick={closeMenu}
+            >
+              HOME
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/contact"
+              onClick={closeMenu}
+            >
+              CONTACT
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/about"
+              onClick={closeMenu}
+            >
+              ABOUT
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/profile"
+              onClick={closeMenu}
+            >
+              PROFILE
+            </NavLink>
+          </li>
+          {!token &&(
+            <>
+            <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/login"
+              onClick={closeMenu}
+            >
+              LOGIN
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/signup"
+              onClick={closeMenu}
+            >
+              SIGNUP
+            </NavLink>
+          </li>
+            </>
+          )}
+          <li>
+            {token &&(
+              <NavLink
+              className={({ isActive }) => (isActive ? "active-tab" : "nav-link")}
+              to="/signup"
+              onClick={()=>{
+                closeMenu();
+                localStorage.removeItem("token");
+                navigate("/signup");
+              }}
+            >
+              LOGOUT
+            </NavLink>
+            )}
+          </li>
+        </ul>
       </nav>
       <hr />
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

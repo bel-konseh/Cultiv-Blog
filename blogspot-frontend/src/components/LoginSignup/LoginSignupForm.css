@@ -29,7 +29,7 @@ body {
 }
 
 .auth-header h1 {
-  color: #1e40af;
+  color: black;
   font-size: 2rem;
   margin-bottom: 10px;
   font-weight: 600;
@@ -72,10 +72,10 @@ body {
 .btn-primary {
   width: 100%;
   padding: 14px;
-  background: #0b0d11;
+  background:red;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -108,7 +108,7 @@ body {
 .link-btn {
   background: none;
   border: none;
-  color: #2563eb;
+  color: black;
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
@@ -118,7 +118,7 @@ body {
 
 .link-btn:hover {
   text-decoration: underline;
-  color: #1d4ed8;
+  color: red;
 }
 
 .error-message {
@@ -134,7 +134,7 @@ body {
 
 .success-message {
   background: #f0f9ff;
-  color: #0369a1;
+  color: green;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 20px;
