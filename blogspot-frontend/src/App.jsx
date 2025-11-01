@@ -24,7 +24,7 @@ const router = createBrowserRouter(
       <Route path="contact/" element={<Contact />} />
       <Route path="login/" element={<LoginPage />} />
       <Route path="signup/" element={<SignUpPage />} />
-      <Route path= "/tologin" element={<ContinueToLogin />} />
+      <Route path= "tologin/" element={<ContinueToLogin />} />
       <Route path="profile/" element={<Profile />} />
       <Route path="blogpost/:articleId" element={<BlogPost />} />
       <Route path="/create-post" element={<CreatePost />} />
