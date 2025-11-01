@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -38,7 +39,7 @@ function About() {
       <section className="about-footer">
         <p>
           ✍️ Want to contribute? <br />
-          <a href="/signup" className="about-link">Create an account</a> and start writing today!
+          <Link to="/signup" className="about-link">Create an account</Link> and start writing today!
         </p>
         <p><a href="/">Back Home</a></p>
       </section>
