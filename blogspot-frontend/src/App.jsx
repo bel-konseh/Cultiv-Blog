@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import BlogPost from './pages/BlogPost/BlogPost'
 import CreatePost from './pages/CreatePost'
 import ContinueToLogin from './pages/To Login/ContinueToLogin'
+import NotFound from './pages/NotFound/NotFound'
 
 
 function App() {
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="profile/" element={<Profile />} />
       <Route path="blogpost/:articleId" element={<BlogPost />} />
       <Route path="/create-post" element={<CreatePost />} />
+      <Route path="*" element = {<NotFound />} />
 
     </Route>
   )
